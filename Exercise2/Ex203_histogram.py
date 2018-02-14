@@ -69,8 +69,10 @@ showImage(image, 1)
 
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 r, g, b = cv2.split(image_rgb)
+
 img3 = cv2.merge([b,g,r])
 his3 = cv2.calcHist([img3],[0],None,[256],[0,256])
+
 showHistogram(his3,2)
 showImage(img3, 2)
 #img2 = np.zeros((image.shape), dtype='int32')

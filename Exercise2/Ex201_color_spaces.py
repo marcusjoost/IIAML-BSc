@@ -48,18 +48,22 @@ image = cv2.imread(filename)
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-channel_r, channel_g, channel_b = cv2.split(image_rgb)
+#channel_r, channel_g, channel_b = cv2.split(image_rgb)
+r = image_rgb[:,:,0]
+g = image_rgb[:,:,1]
+b = image_rgb[:,:,2]
+
 
 height, weidth, channels = image.shape
 single =  np.zeros((height, weidth), dtype=np.uint8)
 
-b = cv2.merge([channel_b, single, single])
-g = cv2.merge([single, channel_g, single])
-r = cv2.merge([single, single, channel_r])
+b = cv2.merge([b, single, single])
+g = cv2.merge([single, g, single])
+r = cv2.merge([single, single, r])
 
 cv2.imshow("red", r)
-cv2.imshow("g", g)
-cv2.imshow("b", b)
+cv2.imshow("green", g)
+cv2.imshow("blue", b)
 
 
 #cv2.imshow("rgb", image_rgb)

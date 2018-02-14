@@ -54,11 +54,11 @@ def showImage(image, pos, title="Image", isGray=False):
 #<!--------------------------------------------------------------------------->
 #<!--                            YOUR CODE HERE                             -->
 #<!--------------------------------------------------------------------------->
-mask = np.zeros((image.shape[0],image.shape[1]), dtype='uint8')
+mask = np.zeros(image.shape[:2], dtype='uint8')
 
-imgmask1 = cv2.rectangle(mask, (300,300), (500 ,500), (255, 255, 255), -1)
-imgmask2 = cv2.circle(mask, (500,500), 100, (255,255,255), -1)
-result = cv2.bitwise_and(image, image, mask=imgmask2)
+imgmask = cv2.rectangle(mask, (300,300), (500 ,500), (255, 255, 255), -1)
+imgmask = cv2.circle(mask, (500,500), 100, (255,255,255), -1)
+result = cv2.bitwise_and(image, image, mask=imgmask)
 showImage(result, 1)
 
 #<!--------------------------------------------------------------------------->

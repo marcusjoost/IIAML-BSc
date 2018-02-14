@@ -238,10 +238,11 @@ cv2.createTrackbar("Negative",   "Point Processing",   0,   1, changeC)
 # Show the input image and the graphics.
 update()
 
-cv2.waitKey(0)
+cv2.waitKey(1)
+
+plt.show()
 
 # Show the plots window.
-plt.show()
 
 # Destroys all of the HighGUI windows.
 cv2.destroyAllWindows()
